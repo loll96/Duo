@@ -1,13 +1,6 @@
 {% extends 'base.html' %}
 {%block body%}
-    {%if messages%}
-        {%for message in messages%}
-            <div class="alert alert-{{message.tags}}">
-                {{message}}
-            </div>
-
-        {%endfor%}
-    {%endif%}
+    <h1 class="mb-3">Posted by {{view.kwargs.username}} [{{page_obj.paginator.count}}]</h1>
     {%for post in posts%}
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
